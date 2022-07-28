@@ -7,7 +7,8 @@ import (
 )
 
 func TestLogger(t *testing.T) {
-	logger.SetLogger(NewLogger(WithName("go-scaffold"), WithCallerFullPath()))
+	newLogger := NewLogger(logger.LevelDebug, WithName("go-scaffold"), WithCallerFullPath())
+	logger.SetLogger(newLogger)
 	logger.Debug("debug")
 	logger.Debugf("debug")
 	logger.Info("info")

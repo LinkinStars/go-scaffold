@@ -34,10 +34,10 @@ type LoggerConfig struct {
 }
 
 // NewLogger new zap logger
-func NewLogger(options ...LogOption) *Logger {
+func NewLogger(level logger.Level, options ...LogOption) *Logger {
 	l := &Logger{
 		conf: LoggerConfig{
-			level:        logger.LevelDebug,
+			level:        level,
 			name:         "log",
 			stdout:       true,
 			maxAge:       7 * 24 * time.Hour,

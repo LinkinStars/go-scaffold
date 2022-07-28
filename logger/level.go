@@ -10,7 +10,7 @@ const LevelKey = "level"
 
 const (
 	// LevelDebug is logger debug level.
-	LevelDebug Level = iota - 1
+	LevelDebug Level = iota
 	// LevelInfo is logger info level.
 	LevelInfo
 	// LevelWarn is logger warn level.
