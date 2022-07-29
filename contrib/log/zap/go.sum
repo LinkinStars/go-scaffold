@@ -1,5 +1,5 @@
-github.com/LinkinStars/go-scaffold v0.0.0-20220727023849-45fc6d365ed1 h1:pDToOC/dSrXnspk+VAlmH+yoTlieLZ8Lp5LeuuBgbGs=
-github.com/LinkinStars/go-scaffold v0.0.0-20220727023849-45fc6d365ed1/go.mod h1:WAVsaQScK6ZcYHKMTZW5Jm8FHYrOF4j0t2XChvD0Ows=
+github.com/LinkinStars/go-scaffold v0.0.0-20220729113825-e9aec6b1abef h1:9PsJBj9RxMaASz6LlOBQVg6GbPVfhEvG/9sJ5DTmR/A=
+github.com/LinkinStars/go-scaffold v0.0.0-20220729113825-e9aec6b1abef/go.mod h1:WAVsaQScK6ZcYHKMTZW5Jm8FHYrOF4j0t2XChvD0Ows=
 github.com/LinkinStars/golang-util v0.0.0-20220416093005-f5520ae2eb51 h1:nfjyjiscFhQDChvWsolglkPEB8jkatDEiFL0xekY8xI=
 github.com/LinkinStars/golang-util v0.0.0-20220416093005-f5520ae2eb51/go.mod h1:KXJyImUR2iHqmYiq34gFgtBrpWdeUmesUWAZ9KFtAa4=
 github.com/benbjohnson/clock v1.1.0 h1:Q92kusRqC1XV2MjkWETPvjJVqKetz1OzxZB7mHJLju8=

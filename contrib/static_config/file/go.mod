@@ -1,8 +1,11 @@
-module github.com/LinkinStars/go-scaffold/contrib/config/file
+module github.com/LinkinStars/go-scaffold/contrib/static_config/file
 
 go 1.17
 
-require github.com/spf13/viper v1.12.0
+require (
+	github.com/LinkinStars/go-scaffold v0.0.0-20220729113825-e9aec6b1abef
+	github.com/spf13/viper v1.12.0
+)
 
 require (
 	github.com/fsnotify/fsnotify v1.5.4 // indirect

@@ -1,0 +1,5 @@
+Base:
+  WebPort: "8080"
+
+Logger:
+  Level: "debug"
