@@ -6,7 +6,7 @@ func BadRequest(reason, message string) *Error {
 }
 
 // IsBadRequest determines if err is BadRequest error.
-func IsBadRequest(err Error) bool {
+func IsBadRequest(err *Error) bool {
 	return err.Code == 400
 }
 
@@ -16,7 +16,7 @@ func Unauthorized(reason, message string) *Error {
 }
 
 // IsUnauthorized determines if err is Unauthorized error.
-func IsUnauthorized(err Error) bool {
+func IsUnauthorized(err *Error) bool {
 	return err.Code == 401
 }
 
@@ -26,7 +26,7 @@ func Forbidden(reason, message string) *Error {
 }
 
 // IsForbidden determines if err is Forbidden error.
-func IsForbidden(err Error) bool {
+func IsForbidden(err *Error) bool {
 	return err.Code == 403
 }
 
@@ -36,7 +36,7 @@ func NotFound(reason, message string) *Error {
 }
 
 // IsNotFound determines if err is NotFound error.
-func IsNotFound(err Error) bool {
+func IsNotFound(err *Error) bool {
 	return err.Code == 404
 }
 
@@ -46,7 +46,7 @@ func Conflict(reason, message string) *Error {
 }
 
 // IsConflict determines if err is Conflict error.
-func IsConflict(err Error) bool {
+func IsConflict(err *Error) bool {
 	return err.Code == 409
 }
 
@@ -56,7 +56,7 @@ func InternalServer(reason, message string) *Error {
 }
 
 // IsInternalServer determines if err is InternalServer error.
-func IsInternalServer(err Error) bool {
+func IsInternalServer(err *Error) bool {
 	return err.Code == 500
 }
 
@@ -66,7 +66,7 @@ func ServiceUnavailable(reason, message string) *Error {
 }
 
 // IsServiceUnavailable determines if err is ServiceUnavailable error.
-func IsServiceUnavailable(err Error) bool {
+func IsServiceUnavailable(err *Error) bool {
 	return err.Code == 503
 }
 
@@ -76,7 +76,7 @@ func GatewayTimeout(reason, message string) *Error {
 }
 
 // IsGatewayTimeout determines if err is GatewayTimeout error.
-func IsGatewayTimeout(err Error) bool {
+func IsGatewayTimeout(err *Error) bool {
 	return err.Code == 504
 }
 
@@ -86,6 +86,6 @@ func ClientClosed(reason, message string) *Error {
 }
 
 // IsClientClosed determines if err is ClientClosed error.
-func IsClientClosed(err Error) bool {
+func IsClientClosed(err *Error) bool {
 	return err.Code == 499
 }
