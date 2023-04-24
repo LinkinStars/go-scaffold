@@ -5,58 +5,56 @@ import (
 )
 
 func TestAesSimpleEncrypt(t *testing.T) {
-	type args struct {
-		data string
-		key  string
+	data := "Hello World!"
+	keys := []string{
+		"1234",
+		"16bit secret key",
+		"16bit secret key1234567",
+		"16bit secret key12345678",
+		"16bit secret key16bit secret ke",
+		"16bit secret key16bit secret key",
+		"16bit secret key16bit secret key1",
 	}
-	tests := []struct {
-		name string
-		args args
-		want string
-	}{
-		{
-			name: "test",
-			args: args{
-				data: "Hello World!",
-				key:  "16bit secret key",
-			},
-			want: "PuMhKY8ZFLnDAwlQ7v/2SQ==",
-		},
+	res := []string{
+		"NHlpzbcTvOj686VaF7fU7g==",
+		"PuMhKY8ZFLnDAwlQ7v/2SQ==",
+		"ZG9JUBvEXrXwSS2RIHvpog==",
+		"pbvDuBOV3tJrlPV0xdmbKQ==",
+		"uAeg71zBzFeUfEMHJqCSxw==",
+		"j9SbFFEEFX4dT9VaDAzsCg==",
+		"j9SbFFEEFX4dT9VaDAzsCg==",
 	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := AesSimpleEncrypt(tt.args.data, tt.args.key); got != tt.want {
-				t.Errorf("AesSimpleEncrypt() = %v, want %v", got, tt.want)
-			}
-		})
+	for i, key := range keys {
+		if got := AesSimpleEncrypt(data, key); got != res[i] {
+			t.Errorf("key = %s AesSimpleEncrypt() = %s, want %v", key, got, res[i])
+		}
 	}
 }
 
 func TestAesSimpleDecrypt(t *testing.T) {
-	type args struct {
-		data string
-		key  string
+	data := "Hello World!"
+	keys := []string{
+		"1234",
+		"16bit secret key",
+		"16bit secret key1234567",
+		"16bit secret key12345678",
+		"16bit secret key16bit secret ke",
+		"16bit secret key16bit secret key",
+		"16bit secret key16bit secret key1",
 	}
-	tests := []struct {
-		name string
-		args args
-		want string
-	}{
-		{
-			name: "test",
-			args: args{
-				key:  "16bit secret key",
-				data: "PuMhKY8ZFLnDAwlQ7v/2SQ==",
-			},
-			want: "Hello World!",
-		},
+	res := []string{
+		"NHlpzbcTvOj686VaF7fU7g==",
+		"PuMhKY8ZFLnDAwlQ7v/2SQ==",
+		"ZG9JUBvEXrXwSS2RIHvpog==",
+		"pbvDuBOV3tJrlPV0xdmbKQ==",
+		"uAeg71zBzFeUfEMHJqCSxw==",
+		"j9SbFFEEFX4dT9VaDAzsCg==",
+		"j9SbFFEEFX4dT9VaDAzsCg==",
 	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := AesSimpleDecrypt(tt.args.data, tt.args.key); got != tt.want {
-				t.Errorf("AesSimpleDecrypt() = %v, want %v", got, tt.want)
-			}
-		})
+	for i, key := range keys {
+		if got := AesSimpleDecrypt(res[i], key); got != data {
+			t.Errorf("key = %s AesSimpleEncrypt() = %s, want %v", key, got, data)
+		}
 	}
 }
 
@@ -111,7 +109,7 @@ func TestAesEncrypt(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := AesEncrypt(tt.args.data, tt.args.key, tt.args.iv, tt.args.paddingMode); got != tt.want {
+			if got := AesCBCEncrypt(tt.args.data, tt.args.key, tt.args.iv, tt.args.paddingMode); got != tt.want {
 				t.Errorf("AesEncrypt() = %v, want %v", got, tt.want)
 			}
 		})
@@ -143,7 +141,7 @@ func TestAesDecrypt(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := AesDecrypt(tt.args.data, tt.args.key, tt.args.iv, tt.args.paddingMode); got != tt.want {
+			if got := AesCBCDecrypt(tt.args.data, tt.args.key, tt.args.iv, tt.args.paddingMode); got != tt.want {
 				t.Errorf("AesDecrypt() = %v, want %v", got, tt.want)
 			}
 		})

@@ -66,7 +66,7 @@ func ZerosPadding(src []byte, blockSize int) []byte {
 	if rem == 0 {
 		return src
 	}
-	return append(src, bytes.Repeat([]byte{byte(0)}, blockSize-rem)...)
+	return append(src, bytes.Repeat([]byte{0}, blockSize-rem)...)
 }
 
 func ZerosUnPadding(src []byte) ([]byte, error) {
