@@ -1,4 +1,4 @@
-package static_config
+package config
 
 // StaticConfig config interface
 type StaticConfig interface {

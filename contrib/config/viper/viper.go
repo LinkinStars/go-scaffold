@@ -1,18 +1,18 @@
-package file
+package viper
 
 import (
-	"github.com/LinkinStars/go-scaffold/static_config"
+	"github.com/LinkinStars/go-scaffold/config"
 	"github.com/spf13/viper"
 )
 
-var _ static_config.StaticConfig = (*file)(nil)
+var _ config.StaticConfig = (*file)(nil)
 
 type file struct {
 	path string
 }
 
 // NewStaticConfigParser create config parser
-func NewStaticConfigParser(path string) *file {
+func NewStaticConfigParser(path string) config.StaticConfig {
 	return &file{path: path}
 }
 

@@ -5,7 +5,6 @@ import (
 	"path"
 	"time"
 
-	"github.com/LinkinStars/golang-util/gu"
 	rotatelogs "github.com/lestrrat-go/file-rotatelogs"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
@@ -52,7 +51,7 @@ func createFileZapCore(name, logPath string, maxAge, rotationTime time.Duration,
 	if len(logPath) == 0 {
 		return
 	}
-	if err := gu.CreateDirIfNotExist(logPath); err != nil {
+	if err := os.MkdirAll(logPath, os.ModePerm); err != nil {
 		panic(err)
 	}
 	logPath = path.Join(logPath, name)
